@@ -1,0 +1,46 @@
+[
+    {
+        "user": "user",
+        "message": "Hello!"
+    },
+    {
+        "user": "bot",
+        "message": "Hi! How can I help you today?"
+    },
+    {
+        "user": "user",
+        "message": "I need help with my order."
+    },
+    {
+        "user": "bot",
+        "message": "Sure! Please provide me with your order number."
+    },
+    {
+        "user": "user",
+        "message": "123456"
+    },
+    {
+        "user": "bot",
+        "message": "Thank you! Let me check your order status."
+    },
+    {
+        "user": "bot",
+        "message": "Your order is on its way! It will be delivered by tomorrow."
+    },
+    {
+        "user": "user",
+        "message": "Thank you!"
+    },
+    {
+        "user": "bot",
+        "message": "You're welcome!"
+    },
+    {
+        "user": "user",
+        "message": "Goodbye!"
+    },
+    {
+        "user": "bot",
+        "message": "Goodbye!"
+    }
+]
