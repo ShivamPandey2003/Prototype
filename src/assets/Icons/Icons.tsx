@@ -38,7 +38,7 @@ export const RightArrow = (className: string) => {
   );
 };
 
-export const RightArrow2 = (className: string) => {
+export const RightArrow2 = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ export const RightArrow2 = (className: string) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`lucide lucide-chevron-right ${className}`}
+      className={`lucide lucide-chevron-right`}
     >
       <path d="m9 18 6-6-6-6" />
     </svg>

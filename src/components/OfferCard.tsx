@@ -1,5 +1,3 @@
-import React from 'react'
-
 const OfferCard = () => {
   return (
     <div className='min-h-[200px] rounded-2xl border-2 border-[#67d3bf] bg-white p-2 my-4'>

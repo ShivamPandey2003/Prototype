@@ -1,5 +1,3 @@
-import React from "react";
-
 const PropertyCard = () => {
   return (
     <div className="relative w-1/2 rounded-lg overflow-hidden">

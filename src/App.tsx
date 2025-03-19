@@ -1,20 +1,9 @@
-import Aside from "./components/Aside";
-import Navbar from "./components/Navbar";
-import Chat from "./components/Chat";
-import RecommendedOffer from "./components/RecommendedOffer";
+import { RouterProvider } from "react-router";
+import { Router } from "./routes/Router";
 
 function App() {
   return (
-    <div className="flex items-start justify-start">
-      <Aside />
-      <div className="lg:w-4/5">
-        <Navbar/>
-        <div className="flex w-full">
-          <Chat/>
-          <RecommendedOffer/>
-        </div>
-      </div>
-    </div>
+    <RouterProvider router={Router}/>
   );
 }
 
