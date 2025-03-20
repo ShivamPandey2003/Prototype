@@ -14,10 +14,12 @@ const Chat = () => {
   const [messages, setMessages] = useState<ChatProps[]>([]);
   const [inputDisabled, setInputDisabled] = useState<boolean>(false);
   const { address, setAddress } = useAddressStore();
+  
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    
     const FetchMessage = async () => {
       try {
         const response = await fetch(

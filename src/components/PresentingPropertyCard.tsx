@@ -1,7 +1,7 @@
 import React from "react";
 import { Bath, Bed, Home } from "lucide-react";
 
-interface PropertyCardProps {
+export interface PropertyCardProps {
   matchPercentage: number;
   address: string;
   distance: string;
@@ -12,6 +12,7 @@ interface PropertyCardProps {
   sqft: number;
   similarFeatures: string[];
   keyDifferences: string[];
+  image: string;
 }
 
 const PresentingPropertyCard : React.FC<PropertyCardProps> = ({
