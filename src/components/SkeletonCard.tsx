@@ -1,13 +1,14 @@
 
 export const SkeletonCard = () => {
   return (
-    <div className="bg-gray-50 flex flex-col items-center p-4 rounded-lg">
-      <div className="grid grid-cols-2 gap-4 max-w-4xl w-full">
-        <div className="bg-white col-span-2 rounded-lg shadow-sm opacity-70 h-36"></div>
-        <div className="bg-white rounded-lg shadow-sm opacity-70 h-36"></div>
-        <div className="bg-white rounded-lg shadow-sm opacity-70 h-36"></div>
-        <div className="bg-white rounded-lg shadow-sm opacity-70 h-36"></div>
-        <div className="bg-white rounded-lg shadow-sm opacity-70 h-36"></div>
+    <div className="bg-gray-50 flex flex-col items-center p-1 rounded-lg">
+      <div className="grid grid-cols-3 gap-2 max-w-4xl w-full">
+        <div className="bg-gray-200 col-span-3 rounded-lg h-36 animate-pulse"></div>
+        <div className="bg-gray-200 col-span-2 rounded-lg h-36 animate-pulse"></div>
+        <div className="bg-gray-200 col-span-1 rounded-lg h-36 animate-pulse"></div>
+        <div className="bg-gray-200 col-span-1 rounded-lg h-36 animate-pulse"></div>
+        <div className="bg-gray-200 col-span-1 rounded-lg h-36 animate-pulse"></div>
+        <div className="bg-gray-200 col-span-1 rounded-lg h-36 animate-pulse"></div>
       </div>
       
       <div className="absolute flex flex-col items-center top-[50%]">
@@ -22,7 +23,7 @@ export const SkeletonCard = () => {
 
 export const SkeletonCard2 = () => {
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="w-4/5 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="w-full h-60 bg-gray-200 animate-pulse" />
       <div className="p-4 space-y-4">
         <div className="h-4 bg-gray-200 rounded-full w-3/4 animate-pulse" />
@@ -53,7 +54,7 @@ function CircularProgress() {
 
 export const SkeletonCard3 = () => {
   return(
-    <div className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+    <div className="w-4/5 bg-white rounded-xl shadow-lg mx-auto overflow-hidden">
       <div className="relative">
         <div className="w-full h-48 bg-gray-200">
           <img 
@@ -66,11 +67,11 @@ export const SkeletonCard3 = () => {
           <CircularProgress />
         </div>
       </div>
-      <div className="p-4 space-y-4">
+      <div className="p-3 space-y-4">
         <div className="text-sm text-gray-400">
           Price Trends: How property values in the area have been changing recently...
         </div>
-        <div className="space-y-3">
+        <div className="space-y-2">
           {[1, 2, 3, 4, 5].map((index) => (
             <div 
               key={index}

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { BarChart, DollarSign, TrendingDown, Calendar } from "lucide-react";
+import { Trends } from "../constant";
+import { cn } from "../lib/utils";
 
 const MarketTrendCard = () => {
   const [activeTab, setActiveTab] = useState<"Home" | "Neighbourhood" | "City">(
@@ -7,7 +9,7 @@ const MarketTrendCard = () => {
   );
 
   return (
-    <div className="bg-blue-100 p-1 rounded-lg shadow-lg max-w-3xl mx-auto">
+    <div className="bg-blue-100 p-1 rounded-lg shadow-lg w-4/5 max-w-2xl mx-auto">
       <div className="flex space-x-4 mb-1 text-blue-700 font-semibold">
         {["Home", "Neighbourhood", "City"].map((tab) => (
           <button
@@ -36,61 +38,22 @@ const MarketTrendCard = () => {
       <div className="bg-blue-50 p-2 rounded-lg shadow-md">
         <h3 className="text-lg font-bold text-blue-900 mb-1">Price Trends</h3>
         <div className="space-y-1">
-          <div className="flex items-center justify-between bg-white p-2 rounded-lg shadow">
-            <div className="flex items-center space-x-2">
-              <DollarSign className="text-blue-500" size={20} />
-              <div>
-                <p className="text-blue-900 font-semibold">Median Price</p>
-                <p className="text-green-500 text-xs">5.2% From Last Year</p>
+          {Trends.map((trend, index) => (
+            <div key={index} className={cn( trend.icon ?"":"opacity-70"  ,"flex items-center justify-between bg-white p-2 rounded-lg shadow")}>
+              <div className="flex items-center space-x-2">
+                {
+                  trend.icon ?
+                  <trend.icon className="text-blue-500" size={20} />:
+                  <div className="w-4 h-4 bg-gray-300 rounded-full"></div>
+                }
+                <div>
+                  <p className="text-blue-900 font-semibold">{trend.title}</p>
+                  <p className="text-green-500 text-xs">{trend.trend}</p>
+                </div>
               </div>
+              <p className="text-2xl font-bold text-blue-900">{trend.value}</p>
             </div>
-            <p className="text-2xl font-bold text-blue-900">$100,000</p>
-          </div>
-          <div className="flex items-center justify-between bg-white p-2 rounded-lg shadow">
-            <div className="flex items-center space-x-2">
-              <BarChart className="text-blue-500" size={20} />
-              <div>
-                <p className="text-blue-900 font-semibold">Sale To List Ratio</p>
-                <p className="text-gray-500 text-xs">
-                  2.5% Below Asking On Avg.
-                </p>
-              </div>
-            </div>
-            <p className="text-2xl font-bold text-blue-900">97.5%</p>
-          </div>
-          <div className="flex items-center justify-between bg-white p-2 rounded-lg shadow">
-            <div className="flex items-center space-x-2">
-              <TrendingDown className="text-blue-500" size={20} />
-              <div>
-                <p className="text-blue-900 font-semibold">
-                  Price Reduced Listings
-                </p>
-                <p className="text-green-500 text-xs">+5% From Last Month</p>
-              </div>
-            </div>
-            <p className="text-2xl font-bold text-blue-900">24%</p>
-          </div>
-          <div className="flex items-center justify-between bg-white p-2 rounded-lg shadow">
-            <div className="flex items-center space-x-2">
-              <Calendar className="text-blue-500" size={20} />
-              <div>
-                <p className="text-blue-900 font-semibold">
-                  Median Days on Market
-                </p>
-                <p className="text-green-500 text-xs">
-                  ↑ 16 Days YoY | ↑ 2 Days MoY
-                </p>
-              </div>
-            </div>
-            <p className="text-2xl font-bold text-blue-900">46 Days</p>
-          </div>
-          <div className="flex items-center justify-between bg-white p-2 rounded-lg shadow">
-            <div className="flex items-center space-x-2">
-              <div className="w-4 h-4 bg-gray-300 rounded-full"></div>
-              <p className="text-blue-900 font-semibold">Other</p>
-            </div>
-            <p className="text-2xl font-bold text-blue-900">0000</p>
-          </div>
+          ))}
         </div>
       </div>
     </div>

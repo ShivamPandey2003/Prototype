@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { images } from "../constant";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import PropertyDetails from "./PropertyDetails";
 
 const VerifyPropertyCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,7 +19,7 @@ const VerifyPropertyCard = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex items-center justify-center rounded-lg">
+    <div className="bg-gray-100 flex flex-col items-center justify-center rounded-lg w-4/5 mx-auto">
       <div className="relative w-full max-w-4xl rounded-lg overflow-hidden shadow-lg">
         <div className="relative">
           <img
@@ -62,6 +63,7 @@ const VerifyPropertyCard = () => {
           </div>
         </div>
       </div>
+      <PropertyDetails />
     </div>
   );
 };

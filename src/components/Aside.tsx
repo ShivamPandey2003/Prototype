@@ -11,17 +11,17 @@ const Aside = () => {
             <div className="w-8 h-8 bg-gray-500 rounded-full"></div>
             <p>UserName</p>
           </span>
-          <Settings className="w-6 h-6" />
+          <Settings />
         </div>
         <Link to={'/create'} className="rounded-4xl bg-[#0036ab] w-7/8 h-2/8 flex items-center justify-center gap-2 text-white">
           <span>Create an offer</span>
-          <RightArrow className="w-2 h-2" />
+          <RightArrow />
         </Link>
       </div>
-      <div className="w-full mt-[1rem] overflow-hidden">
+      <div className="w-full mt-[1rem]">
         <p className="ml-[30%] mb-4">Your Offers</p>
         <div
-          className="w-full flex flex-col justify-center overflow-y-auto max-h-[435px] px-4"
+          className="w-full flex flex-col justify-center overflow-y-scroll h-full max-h-[435px] px-4"
           style={{ scrollbarWidth: "none" }}
         >
           <OfferCard />

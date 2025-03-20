@@ -28,7 +28,7 @@ const PresentingPropertyCard : React.FC<PropertyCardProps> = ({
   keyDifferences,
 }) => {
   return (
-    <div className="bg-blue-100 p-2 rounded-lg shadow-lg max-w-2xl mx-auto relative">
+    <div className="bg-blue-100 p-2 rounded-lg shadow-lg w-4/5 max-w-2xl mx-auto relative">
       <div className="relative mb-2">
         <img
           src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -61,7 +61,7 @@ const PresentingPropertyCard : React.FC<PropertyCardProps> = ({
       <div className="flex items-center justify-between mt-4">
         <div>
           <p className="text-2xl font-bold text-blue-900">${price}</p>
-          <p className="text-sm text-gray-500">Price per SqFt</p>
+          <p className="text-sm text-gray-500">Price per Sqft</p>
         </div>
         <p className="text-sm text-gray-600">Sold on {saleDate}</p>
       </div>
