@@ -87,7 +87,7 @@ const Chat = () => {
                   </form>
                 ) : message.Action === "next" ? (
                   <Link
-                    to={message.option[0]}
+                    to={`/create/${message.option[0]}`}
                     className="p-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors inline-block mt-3 w-full text-center"
                   >
                     Next Step

@@ -6,10 +6,22 @@ import PresentingProperty from "../components/PresentingProperty";
 import MarketTrend from "../components/MarketTrend";
 import PropertyCondition from "../components/PropertyCondition";
 import PersonalizingTheOffer from "../components/PersonalizingTheOffer";
+import IndexLayout from "../layout/IndexLayout";
+import Home from "../components/Home";
 
 export const Router = createBrowserRouter([
   {
     path: "/",
+    element: <IndexLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      }
+    ]
+  },
+  {
+    path: "/create",
     element: <Layout />,
     children: [
       {

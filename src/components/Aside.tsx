@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { RightArrow, Settings } from "../assets/Icons/Icons";
 import OfferCard from "./OfferCard";
 
@@ -12,10 +13,10 @@ const Aside = () => {
           </span>
           <Settings className="w-6 h-6" />
         </div>
-        <div className="rounded-4xl bg-[#0036ab] w-7/8 h-2/8 flex items-center justify-center gap-2 text-white">
+        <Link to={'/create'} className="rounded-4xl bg-[#0036ab] w-7/8 h-2/8 flex items-center justify-center gap-2 text-white">
           <span>Create an offer</span>
           <RightArrow className="w-2 h-2" />
-        </div>
+        </Link>
       </div>
       <div className="w-full mt-[1rem] overflow-hidden">
         <p className="ml-[30%] mb-4">Your Offers</p>
