@@ -9,6 +9,7 @@ import IndexLayout from "../layout/IndexLayout";
 import Home from "../components/Home";
 import PropertyCarousel from "../components/Carousel";
 import { propertyData } from "../constant";
+import PresentingProperty from "../components/PresentingProperty";
 
 export const Router = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "presenting-comparable",
-        element: <PropertyCarousel properties={propertyData}/>
+        element: <PresentingProperty/>
       },
       {
         path: "analyzing-current-market",

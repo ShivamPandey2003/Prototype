@@ -1,8 +1,9 @@
-import { Titles } from "../constant";
-import Chat from "./Chat";
-import QualityScoreCard from "./QualityScroeCard";
+import { propertyData, Titles } from "../constant"
+import PropertyCarousel from "./Carousel"
+import Chat from "./Chat"
 
-const PropertyCondition = () => {
+
+const PresentingProperty = () => {
   return (
     <div className="flex w-full">
       <Chat />
@@ -10,10 +11,10 @@ const PropertyCondition = () => {
         <p className="text-center my-2 text-[#0b43be] font-semibold">
         {Titles[location.pathname as keyof typeof Titles]}
         </p>
-        <QualityScoreCard />
+        <PropertyCarousel properties={propertyData}/>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PropertyCondition;
+export default PresentingProperty

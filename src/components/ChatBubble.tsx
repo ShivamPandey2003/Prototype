@@ -11,29 +11,25 @@ const ChatBubble: React.FC = () => {
   const [isChatVisible, setIsChatVisible] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const responses = {
+    "hi mira": "Hi! I’m Agent Mira, and I’m here to help you with your home-buying journey. It seems like your question is a bit outside my area of expertise. I specialize in real estate and the properties that might be of interest to you, so feel free to ask me anything about home features, market trends, or finding your dream property. I’d love to help with those!",
+    "hello": "Hi there! How can I assist you",
+    "how are you": "I'm doing grea, thanks for asking! How about you?",
+    "bye": "Goodbye! Have a great day!",
+    "default": "I'm not sure I understand. Could you please rephrase that?"
+}
 
   const FetchMessage = async (message: string) => {
-    try {
-      const response = await fetch("http://localhost:8000/api/chat", {
-        method: "POST", // Specify the HTTP method
-        headers: {
-          "Content-Type": "application/json", // Indicate that the body is JSON
-        },
-        body: JSON.stringify({ message }), // Convert the message to a JSON string
-      });
-
-      const data = await response.json();
+    const lowercaseMessage = message.toLocaleLowerCase();
+    const response = responses[lowercaseMessage as keyof typeof responses] || responses.default;
 
       const agentMessage: Message = {
         id: messages.length + 2,
-        text: data.reply,
+        text: response,
         sender: "Agent Mira",
       };
 
       setMessages((prev)=>[...prev, agentMessage]);
-    } catch (e) {
-      console.log(e);
-    }
   };
 
   useEffect(() => {

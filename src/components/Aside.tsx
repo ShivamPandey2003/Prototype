@@ -31,7 +31,7 @@ const Aside = () => {
         </div>
       </div>
       <div className="w-full absolute bottom-0 bg-[#b8d4ff] h-[3rem] rounded-t-2xl flex px-8 items-center justify-between">
-        <p className="font-semibold">Home</p>
+        <Link to={'/'} className="font-semibold">Home</Link>
         <p className="font-semibold">FAQ</p>
       </div>
     </div>

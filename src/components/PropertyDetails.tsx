@@ -6,7 +6,7 @@ const PropertyDetails = () => {
     <div className="bg-blue-100 p-4 rounded-lg shadow-lg max-w-2xl mx-auto">
       <div className="grid grid-cols-3 gap-4 mb-2 text-blue-700">
         {VerifyPropertyCardData.propertyDetails.map((detail, index) => (
-          <InfoCard icon={<detail.icon />} label={detail.label} />
+          <InfoCard key={index} icon={<detail.icon />} label={detail.label} />
         ))}
       </div>
       <div className="bg-blue-200 p-4 rounded-lg mb-2 text-blue-900 text-sm">

@@ -1,7 +1,17 @@
 import { ChevronRight, HomeIcon } from 'lucide-react'
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router'
+import { resetAndLoadFromStorage } from '../stores/reducers/Homereducer';
 
 const Home = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(resetAndLoadFromStorage());
+  },[])
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-4xl w-full relative">
