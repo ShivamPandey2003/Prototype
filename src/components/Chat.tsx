@@ -6,6 +6,7 @@ import Messages from "../dummy-data/message.json";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../stores/store";
 import { setAddress, setMsg } from "../stores/reducers/Homereducer";
+import { ArrowRight } from "lucide-react";
 
 interface ChatProps {
   message: string;
@@ -16,11 +17,12 @@ interface ChatProps {
 const Chat = () => {
   const location = useLocation();
 
-  const data = useSelector((state:any)=>state.Home[`${location.pathname}`]);
-  const address = useSelector((state:any)=>state.Home.address)
+  const data = useSelector((state: any) => state.Home[`${location.pathname}`]);
+  const address = useSelector((state: any) => state.Home.address);
   const dispatch = useAppDispatch();
-  
-  const Chats = Messages[location.pathname as keyof typeof Messages] ||Messages["/create"];
+
+  const Chats =
+    Messages[location.pathname as keyof typeof Messages] || Messages["/create"];
   const [questionIndex, setQuestionIndex] = useState<number>(0 || data.length);
   const [messages, setMessages] = useState<ChatProps[]>(data);
   const [inputDisabled, setInputDisabled] = useState<boolean>(false);
@@ -28,10 +30,8 @@ const Chat = () => {
   const [inputValue, setInputValue] = useState<string>(address);
   const [selected, setSelected] = useState<string>("");
 
-  console.log(messages.length)
-  
   const chatContainerRef = useRef<HTMLDivElement>(null);
-  
+
   const msg = () => {
     let index: number = questionIndex;
     const currentmsg = Chats[index];
@@ -57,7 +57,7 @@ const Chat = () => {
     const timer = setTimeout(() => {
       msg();
     }, 5000);
-    dispatch(setMsg({data:messages, location:location.pathname}))
+    dispatch(setMsg({ data: messages, location: location.pathname }));
     return () => clearTimeout(timer);
   }, [messages, isAction]);
 
@@ -71,7 +71,7 @@ const Chat = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setInputDisabled(true);
-    dispatch(setAddress(inputValue))
+    dispatch(setAddress(inputValue));
     setIsAction(false);
   };
 
@@ -100,7 +100,7 @@ const Chat = () => {
                 {message.Action === "input" ? (
                   <form
                     onSubmit={handleSubmit}
-                    className="flex w-full max-w-2xl mt-3"
+                    className="flex w-full max-w-2xl mt-3 bg-white rounded-l-lg"
                   >
                     <input
                       type="text"
@@ -119,22 +119,27 @@ const Chat = () => {
                     </button>
                   </form>
                 ) : message.Action === "next" ? (
-                  <Link
-                    to={`/create/${message.option[0]}`}
-                    className="p-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors inline-block mt-3 w-full text-center"
-                  >
-                    Next Step
-                  </Link>
+                  <div className="w-full flex justify-center items-center group">
+                    <Link
+                      to={`/create/${message.option[0]}`}
+                      className="p-1 bg-blue-500 text-white rounded-full group-hover:bg-blue-600 transition-colors inline-block mt-3 w-3/5 text-center"
+                    >
+                      Next Step
+                    </Link>
+                    <div className="rounded-full bg-blue-500 p-1 mt-3 text-white group-hover:bg-blue-600 transition-colors">
+                      <ArrowRight />
+                    </div>
+                  </div>
                 ) : (
                   <ul className="mt-3 space-y-1">
                     {message.option.map((option, index) => (
                       <li
                         onClick={() => onClick(option)}
                         key={index}
-                        className={`text-sm p-2 rounded-md ${
+                        className={`text-sm p-2 rounded-xl text-center ${
                           selected === option
-                            ? "bg-blue-100 text-blue-800 font-medium border-2 border-blue-300"
-                            : "text-gray-700 hover:bg-gray-100 border-2 border-gray-300"
+                            ? "text-blue-800 font-medium border-2 border-blue-300 bg-white"
+                            : "text-gray-700 hover:bg-gray-100 border-2 border-gray-300 bg-white opacity-80"
                         }`}
                       >
                         {option}

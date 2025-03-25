@@ -22,9 +22,9 @@
       "message": "Select a property below to remove from the comparable properties list.",
       "Action": "select",
       "option": [
-        "1. xyz, road, city, state, zip",
-        "2. xyz, road, city, state, zip",
-        "3. xyz, road, city, state, zip"
+        "abc, road, city, state, zip",
+        "def, road, city, state, zip",
+        "xyz, road, city, state, zip"
       ]
     },
     {
@@ -48,6 +48,83 @@
       "message": "These factors give us valuable insight into how to position you offer. Lets use this data to refine our pricing strategy!",
       "Action": "next",
       "option": ["property-condition"]
+    }
+  ],
+
+  "/create/property-condition": [
+    {
+      "message": "Here is the overall quality score",
+      "Action": "",
+      "option": []
+    },
+    {
+      "message": "Here are the damages of the property",
+      "Action": "",
+      "option": []
+    },
+    {
+      "message": "Have you had a chance to see the property in person?",
+      "Action": "select",
+      "option": [
+        "Yes, I have visited the property",
+        "No, I haven't visited the property"
+      ]
+    },
+    {
+      "message": "These factors give us valuable insight into how to position your offer. Lets use this data to refine our price strategy!",
+      "Action": "next",
+      "option": ["personalizing-the-offer"]
+    }
+  ],
+  "/create/personalizing-the-offer": [
+    {
+      "message": "Wow, I love seeing your inspiration! this really helps me understand you vision. Let's make sure this property aligns with it",
+      "Action": "",
+      "option": []
+    },
+    {
+      "message": "Now that I undestand your dream home and priorities. I'll analyze how this property aligns with them and tailor your offer accordingly. Let's move forward",
+      "Action": "next",
+      "option": ["recommended-offer"]
+    }
+  ],
+  "/create/recommended-offer": [
+    {
+      "message": "Thank you for sharing all the important information to help me design the best offer for your target property",
+      "Action": "",
+      "option": []
+    },
+    {
+      "message": "Please take a moment to review this offer",
+      "Action": "",
+      "option": []
+    },
+    {
+      "message": "Now would you like to customise your offer? How competitive would you like your offer to be?",
+      "Action":"select",
+      "option":[
+        "Stay conservative",
+        "Balance value & win",
+        "Win this home"
+      ]
+    },
+    {
+      "message":"Great! You'll recieve confirmation shortly",
+      "Action":"",
+      "option":[]
+    },
+    {
+      "message":"Meanwhile, I'll share these details with one of our expert real estate agents.They'll double check my analysis to ensure i haven't missed anything and cnfirm the final offer the with you soon",
+      "Action":"",
+      "option":[]
+    },
+    {
+      "message":"Would you like to download a report with all the information we've discussed?",
+      "Action":"select",
+      "option":[
+        "No, Thank you!",
+        "Download"
+      ]
     }
   ]
 }

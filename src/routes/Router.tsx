@@ -7,24 +7,28 @@ import PropertyCondition from "../components/PropertyCondition";
 import PersonalizingTheOffer from "../components/PersonalizingTheOffer";
 import IndexLayout from "../layout/IndexLayout";
 import Home from "../components/Home";
-import PropertyCarousel from "../components/Carousel";
-import { propertyData } from "../constant";
 import PresentingProperty from "../components/PresentingProperty";
+import Login from "../components/Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const Router = createBrowserRouter([
   {
     path: "/",
-    element: <IndexLayout />,
+    element: <ProtectedRoute element={<IndexLayout />} />,
     children: [
       {
         index: true,
         element: <Home />,
-      }
-    ]
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <Login />,
   },
   {
     path: "/create",
-    element: <Layout />,
+    element: <ProtectedRoute element={<Layout />} />,
     children: [
       {
         index: true,
@@ -36,20 +40,20 @@ export const Router = createBrowserRouter([
       },
       {
         path: "presenting-comparable",
-        element: <PresentingProperty/>
+        element: <PresentingProperty />,
       },
       {
         path: "analyzing-current-market",
-        element: <MarketTrend/>
+        element: <MarketTrend />,
       },
       {
         path: "property-condition",
-        element:<PropertyCondition/>
+        element: <PropertyCondition />,
       },
       {
         path: "personalizing-the-offer",
-        element:<PersonalizingTheOffer/>
-      }
+        element: <PersonalizingTheOffer />,
+      },
     ],
   },
 ]);
