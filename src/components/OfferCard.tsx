@@ -1,10 +1,24 @@
-const OfferCard = () => {
+export const OfferCardSkeleton = () => {
   return (
-    <div className='min-h-[200px] rounded-2xl border-2 border-[#67d3bf] bg-white p-2 my-4'>
-        <img src={`https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`} alt="img"  className='w-full h-[120px] rounded-2xl object-center'/>
-        <p className='text-base text-center mt-4'>18, xyz street, miami Florida, 12.08.2025</p>
-    </div>
-  )
-}
+    <div className="w-64 h-[164px] rounded-2xl border-[#797979] bg-transparent border-[2px] opacity-15"></div>
+  );
+};
 
-export default OfferCard
+const OfferCard = () => (
+  <div className="w-[216px] h-[174px] rounded-[20px] shadow-lg overflow-hidden flex flex-col relative bg-white ">
+    <div className="flex flex-col h-full p-2">
+      <div className="flex-1 overflow-hidden">
+        <img
+          alt="xyz 123 road, 20555 - Offer 1"
+          className="w-full h-full object-cover rounded-[20px]"
+          src="https://mira.thinkbar.tech/assets/placeholder-BBUHf6ZF.png"
+        />
+      </div>
+      <div className="bg-transparent text-sm p-2 text-center text-black font-normal">
+        xyz 123 road, 20555 - Offer 1
+      </div>
+    </div>
+  </div>
+);
+
+export default OfferCard;

@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+*{
+  box-sizing: border-box;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.custom-scrollbar:hover {
+  scrollbar-color: #c2c0c0 transparent;
+}
+
 @keyframes custom-spin {
   0% {
     transform: rotate(0deg);
@@ -13,7 +26,7 @@
   animation: custom-spin 1s linear infinite;
 }
 
-.login_banner{
+.login_banner {
   background-image: url("https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,11 +34,13 @@
 }
 
 .svg_mask {
-position: relative;
+  position: relative;
 }
 
-.svg_mask{
-  -webkit-mask: url('./assets/images/bottom-right.png') center / contain no-repeat, linear-gradient(#000000 0 0);
+.svg_mask {
+  -webkit-mask: url("./assets/images/bottom-right.png") center / contain
+      no-repeat,
+    linear-gradient(#000000 0 0);
   mask-size: 12rem;
   mask-position: bottom left;
   mask-composite: exclude;

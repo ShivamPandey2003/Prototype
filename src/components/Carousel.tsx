@@ -21,7 +21,7 @@ const PropertyCarousel: React.FC<PropertyCarouselProps> = ({ properties }) => {
   }, [emblaApi]);
 
   return (
-    <div className="relative">
+    <div className="relative my-2">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {properties.map((property, index) => (
@@ -38,7 +38,7 @@ const PropertyCarousel: React.FC<PropertyCarouselProps> = ({ properties }) => {
         <button
           onClick={scrollPrev}
           className={cn(
-            " absolute p-2 -left-10 top-1/2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors duration-300",
+            " absolute p-2 left-2 top-1/2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors duration-300",
             "border border-gray-200 text-gray-800"
           )}
           aria-label="Previous slide"
@@ -48,7 +48,7 @@ const PropertyCarousel: React.FC<PropertyCarouselProps> = ({ properties }) => {
         <button
           onClick={scrollNext}
           className={cn(
-            " absolute p-2 -right-10 top-1/2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors duration-300",
+            " absolute p-2 right-2 top-1/2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors duration-300",
             "border border-gray-200 text-gray-800"
           )}
           aria-label="Next slide"

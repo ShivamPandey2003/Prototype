@@ -1,12 +1,13 @@
 import AddressTag from "./AddressTag";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import ChatBubble from "./ChatBubble";
 import Messages from "../dummy-data/message.json";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../stores/store";
 import { setAddress, setMsg } from "../stores/reducers/Homereducer";
-import { ArrowRight } from "lucide-react";
+import Button from "./Button";
+import { OptionsIcons } from "../constant";
 
 interface ChatProps {
   message: string;
@@ -20,6 +21,7 @@ const Chat = () => {
   const data = useSelector((state: any) => state.Home[`${location.pathname}`]);
   const address = useSelector((state: any) => state.Home.address);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   const Chats =
     Messages[location.pathname as keyof typeof Messages] || Messages["/create"];
@@ -85,7 +87,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="hidden w-2/5 relative md:flex flex-col lg:items-center lg:h-[35rem]">
+    <div className="hidden w-1/2 relative md:flex flex-col lg:items-center lg:h-[35rem]">
       <AddressTag />
       <div className="w-full mt-[4rem] h-full px-2 mb-[3rem]">
         <div
@@ -95,8 +97,8 @@ const Chat = () => {
           {messages.map((message, index) => (
             <div key={index} className={`w-full flex max-h-full mb-4 gap-2`}>
               <div className="w-8 h-8 bg-gray-500 rounded-full"></div>
-              <div className="w-[90%] bg-gray-100 p-2 rounded-xl">
-                <p className="text-xs">{message.message}</p>
+              <div className="w-[90%] bg-gray-100 p-2 rounded-lg">
+                <p className="text-base">{message.message}</p>
                 {message.Action === "input" ? (
                   <form
                     onSubmit={handleSubmit}
@@ -119,29 +121,24 @@ const Chat = () => {
                     </button>
                   </form>
                 ) : message.Action === "next" ? (
-                  <div className="w-full flex justify-center items-center group">
-                    <Link
-                      to={`/create/${message.option[0]}`}
-                      className="p-1 bg-blue-500 text-white rounded-full group-hover:bg-blue-600 transition-colors inline-block mt-3 w-3/5 text-center"
-                    >
-                      Next Step
-                    </Link>
-                    <div className="rounded-full bg-blue-500 p-1 mt-3 text-white group-hover:bg-blue-600 transition-colors">
-                      <ArrowRight />
-                    </div>
+                  <div className="w-full flex justify-center items-center group my-4 px-2">
+                    <Button onClick={()=>navigate(`/create/${message.option[0]}`)}>Next Step</Button>
                   </div>
                 ) : (
-                  <ul className="mt-3 space-y-1">
+                  <ul className="mt-3 space-y-1 mb-1">
                     {message.option.map((option, index) => (
                       <li
                         onClick={() => onClick(option)}
                         key={index}
-                        className={`text-sm p-2 rounded-xl text-center ${
+                        className={`text-sm p-1 flex items-center gap-6 rounded-full text-center ${
                           selected === option
-                            ? "text-blue-800 font-medium border-2 border-blue-300 bg-white"
-                            : "text-gray-700 hover:bg-gray-100 border-2 border-gray-300 bg-white opacity-80"
+                            ? "text-blue-800 font-semibold text-[16px] border-2 border-blue-300 bg-white"
+                            : "text-white font-semibold text-[16px] hover:bg-[#5D9DFE] border-2 border-blue-800 bg-[#1354B6]"
                         }`}
                       >
+                        <div className="rounded-full w-14 h-14 bg-[#B8D4FF] flex items-center justify-center">
+                          {OptionsIcons[index].icon}
+                        </div>
                         {option}
                       </li>
                     ))}

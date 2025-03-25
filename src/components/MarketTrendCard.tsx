@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BarChart, DollarSign, TrendingDown, Calendar } from "lucide-react";
 import { Trends } from "../constant";
 import { cn } from "../lib/utils";
 
@@ -9,7 +8,7 @@ const MarketTrendCard = () => {
   );
 
   return (
-    <div className="bg-blue-100 p-1 rounded-lg shadow-lg w-4/5 max-w-2xl mx-auto">
+    <div className="bg-blue-100 p-1 rounded-lg shadow-lg w-[90%] max-w-2xl mx-auto">
       <div className="flex space-x-4 mb-1 text-blue-700 font-semibold">
         {["Home", "Neighbourhood", "City"].map((tab) => (
           <button
@@ -26,8 +25,57 @@ const MarketTrendCard = () => {
         ))}
       </div>
       <div className="relative bg-white p-4 rounded-lg shadow mb-2">
-        <div className="w-full h-10 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 rounded-full relative">
-          <div className="absolute left-1/4 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-white border-4 border-blue-500 rounded-full"></div>
+        <div className="flex justify-center">
+          <svg
+            className="speedometer"
+            width="350px"
+            height="200px"
+            role="img"
+            focusable="false"
+            aria-label="React d3 speedometer"
+            style={{ width: 350, height: 200 }}
+          >
+            <g className="arc" transform="translate(175, 175)">
+              <path
+                className="speedo-segment"
+                fill="#F9462D"
+                d="M-155,0A155,155,0,0,1,-77.5,-134.234L-12.5,-21.651A25,25,0,0,0,-25,0Z"
+              ></path>
+              <path
+                className="speedo-segment"
+                fill="#F7BE2D"
+                d="M-77.5,-134.234A155,155,0,0,1,77.5,-134.234L12.5,-21.651A25,25,0,0,0,-12.5,-21.651Z"
+              ></path>
+              <path
+                className="speedo-segment"
+                fill="#3FE972"
+                d="M77.5,-134.234A155,155,0,0,1,155,0L25,0A25,25,0,0,0,12.5,-21.651Z"
+              ></path>
+            </g>
+            <g className="label" transform="translate(175, 175)"></g>
+            <g transform="translate(175, 175)">
+              <text
+                className="current-value"
+                text-anchor="middle"
+                y="23"
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  fill: "transparent",
+                }}
+              ></text>
+            </g>
+            <g
+              className="pointer"
+              transform="translate(175, 175)"
+              style={{ fill: "rgb(255, 255, 255)" }}
+            >
+              <path
+                d="M5,0C3.333,-79,1.667,-158,0,-158C-1.667,-158,-3.333,0,-5,0C-3.333,0,-1.667,5,0,5C1.667,5,3.333,2.5,5,0"
+                transform="rotate(-45)"
+              ></path>
+            </g>
+          </svg>
         </div>
         <div className="flex justify-between text-sm text-blue-700 font-semibold mt-2">
           <span>Seller's market</span>
@@ -39,13 +87,19 @@ const MarketTrendCard = () => {
         <h3 className="text-lg font-bold text-blue-900 mb-1">Price Trends</h3>
         <div className="space-y-1">
           {Trends.map((trend, index) => (
-            <div key={index} className={cn( trend.icon ?"":"opacity-70"  ,"flex items-center justify-between bg-white p-2 rounded-lg shadow")}>
+            <div
+              key={index}
+              className={cn(
+                trend.icon ? "" : "opacity-70",
+                "flex items-center justify-between bg-white p-2 rounded-lg shadow"
+              )}
+            >
               <div className="flex items-center space-x-2">
-                {
-                  trend.icon ?
-                  <trend.icon className="text-blue-500" size={20} />:
+                {trend.icon ? (
+                  <trend.icon className="text-blue-500" size={20} />
+                ) : (
                   <div className="w-4 h-4 bg-gray-300 rounded-full"></div>
-                }
+                )}
                 <div>
                   <p className="text-blue-900 font-semibold">{trend.title}</p>
                   <p className="text-green-500 text-xs">{trend.trend}</p>

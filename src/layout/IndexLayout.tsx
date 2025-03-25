@@ -3,9 +3,9 @@ import Aside from '../components/Aside'
 
 const IndexLayout = () => {
   return (
-    <div className='flex'>
+    <div className='flex min-h-screen'>
         <Aside/>
-        <div className='lg:w-4/5'>
+        <div className='ml-[280px] w-full flex-1 overflow-x-hidden'>
             <Outlet/>
         </div>
     </div>

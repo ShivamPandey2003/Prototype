@@ -8,7 +8,7 @@ type MsgType = {
 
 type HomeState = {
   address: string;
-  geo: string;
+  date: string;
   "/create": MsgType[];
   "/create/presenting-comparable":MsgType[]
   "/create/recommended-offer":MsgType[]
@@ -17,9 +17,17 @@ type HomeState = {
   "/create/personalizing-the-offer":MsgType[]
 };
 
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+};
+
 const defaultState: HomeState = {
   address: "",
-  geo: "",
+  date: formatDate(new Date().toISOString()),
   "/create": [],
   "/create/presenting-comparable":[],
   "/create/recommended-offer":[],
@@ -60,10 +68,6 @@ export const homeSlice = createSlice({
         state.address = action.payload;
         saveStateToLocalStorage(state);
       },
-      setGeo: (state, action: PayloadAction<string>) => {
-        state.geo = action.payload;
-        saveStateToLocalStorage(state);
-      },
       setMsg: (state:any, action: PayloadAction<{data:MsgType[], location: string}>) => {
         state[action.payload.location] = [...action.payload.data];
         saveStateToLocalStorage(state);
@@ -75,5 +79,5 @@ export const homeSlice = createSlice({
     }
   });
 
-export const { setAddress, setGeo, setMsg, resetAndLoadFromStorage } = homeSlice.actions;
+export const { setAddress, setMsg, resetAndLoadFromStorage } = homeSlice.actions;
 export default homeSlice.reducer;

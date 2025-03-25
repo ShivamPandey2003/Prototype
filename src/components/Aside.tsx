@@ -1,67 +1,81 @@
-import { Link } from "react-router";
-import { RightArrow } from "../assets/Icons/Icons";
-import OfferCard from "./OfferCard";
+import { Link, useNavigate } from "react-router";
+import OfferCard, { OfferCardSkeleton } from "./OfferCard";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import { Settings2 } from "lucide-react";
+import { Fragment, useState } from "react";
 import { logout } from "../stores/reducers/authSlice";
+import Button from "./Button";
 
 const Aside = () => {
   const data = useSelector((state: any) => state.auth);
   const [toggle, setToggle] = useState<boolean>(false);
+  const address = useSelector((state:any)=>state.Home.address);
+  const navigate = useNavigate()
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
-    <div className="hidden lg:block w-1/5 bg-[#e3eeff] relative">
-      <div className="flex flex-col justify-center items-center h-[150px] w-full gap-8 border-b-[1px]">
-        <div className="flex items-center gap-12">
-          <span className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gray-500 rounded-full"></div>
-            <p>{data.user.email}</p>
+    <div className="fixed top-0 left-0 h-screen w-[280px] flex flex-col border-r-1 border-[#bfbfbf] group">
+      <div className="flex items-center justify-between px-4 pt-4">
+        <div className="flex items-center gap-3">
+          <span className="relative flex size-8 shrink-0 overflow-hidden rounded-full h-10 w-10">
+            <span className="bg-zinc-100 flex size-full items-center justify-center rounded-full dark:bg-zinc-800">
+              {data.user.email[0]}
+            </span>
           </span>
-          <div className="relative">
-            <Settings2 onClick={()=>setToggle(prev=>!prev)} className=" cursor-pointer" />
-            <div
-              className={`${
-                toggle ? "flex" : "hidden"
-              } p-6 bg-black-gradient absolute top-5 -right-2 mx-1 my-1 min-w-[180px] rounded-xl sidebar bg-blue-200`}
-            >
-              <ul className="list-none flex flex-col justify-center items-center flex-1">
-                <li
-                  className={`font-primary font-semibold cursor-pointer text-[18px] text-white`}
-                >
-                  <button onClick={()=>dispatch(logout())} className="bg-blue-800 rounded-full px-6 py-1">Log-Out</button>
-                </li>
-              </ul>
-            </div>
+          <span className="text-sm font-medium text-[#797979]">
+            {data.user.email}
+          </span>
+        </div>
+        <div className="relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-settings text-[#79ACF8]"
+            onClick={() => setToggle((prev) => !prev)}
+          >
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <div
+            className={`${
+              toggle ? "flex" : "hidden"
+            } p-6 bg-black-gradient absolute top-5 z-50 -right-4 mx-1 my-1 min-w-[220px] rounded-xl sidebar bg-white border border-black/15 shadow`}
+          >
+                <Button onClick={()=>dispatch(logout())}>Log Out</Button>
           </div>
         </div>
-        <Link
-          to={"/create"}
-          className="rounded-4xl bg-[#0036ab] w-7/8 h-2/8 flex items-center justify-center gap-2 text-white"
-        >
-          <span>Create an offer</span>
-          <RightArrow />
-        </Link>
       </div>
-      <div className="w-full mt-[1rem]">
-        <p className="ml-[30%] mb-4">Your Offers</p>
-        <div
-          className="w-full flex flex-col justify-center overflow-y-scroll h-full max-h-[435px] px-4"
-          style={{ scrollbarWidth: "none" }}
-        >
-          <OfferCard />
-          <OfferCard />
-          <OfferCard />
-          <OfferCard />
+      <div className="p-4">
+        <Button onClick={()=>navigate('/create')}>Create an offer</Button>
+      </div>
+      <div className="border-t-[#797979] border-t-[0.5px] opacity-40"></div>
+      <div className="flex-1 px-4 py-0 overflow-y-auto flex flex-col items-center custom-scrollbar">
+        <h2 className="my-4 text-sm font-normal text-[#272727]">Your Offers</h2>
+        <div className="space-y-4 flex flex-col items-center w-full">
+          {
+            Array.from({length:3}).map((_, i)=>(
+              <Fragment key={i}>
+                {address !== "" ? <OfferCard/>: <OfferCardSkeleton/>}
+              </Fragment>
+            ))
+          }
         </div>
       </div>
-      <div className="w-full absolute bottom-0 bg-[#b8d4ff] h-[3rem] rounded-t-2xl flex px-8 items-center justify-between">
-        <Link to={"/"} className="font-semibold">
+      <div className="flex border-t border-[#E5E7EB] bg-[#B8D4FF] rounded-t-2xl text-[#272727]">
+        <Link
+          to={"/"}
+          className="flex-1 p-4 text-center text-base font-semibold"
+        >
           Home
         </Link>
-        <p className="font-semibold">FAQ</p>
+        <p className="flex-1 p-4 text-center text-base font-semibold">FAQ</p>
       </div>
     </div>
   );

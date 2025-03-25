@@ -19,8 +19,8 @@ const VerifyPropertyCard = () => {
   };
 
   return (
-    <div className="bg-blue-100 flex flex-col items-center justify-center rounded-lg w-4/5 mx-auto">
-      <div className="relative w-full max-w-4xl rounded-lg overflow-hidden">
+    <div className="bg-blue-100 flex flex-col items-center justify-center rounded-lg w-5/5 mx-auto my-4">
+      <div className="relative w-full rounded-lg overflow-hidden">
         <div className="relative">
           <div
             className={`w-full h-64 svg_mask`}

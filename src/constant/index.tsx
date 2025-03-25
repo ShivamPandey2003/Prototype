@@ -1,3 +1,4 @@
+import { Document, Search, Shield, Star } from "../assets/Icons/Icons";
 import { PropertyCardProps } from "../components/PresentingPropertyCard";
 import {
   BarChart,
@@ -32,7 +33,7 @@ export const propertyData: PropertyCardProps[] = [
     address: "123 Maple Street, Beverly Hills, CA 90210",
     distance: "0.5 miles",
     price: "1,250,000",
-    saleDate: "Mar 15, 2024",
+    saleDate: "15/3/2024",
     bedrooms: 4,
     baths: 3,
     sqft: 2800,
@@ -46,7 +47,7 @@ export const propertyData: PropertyCardProps[] = [
     address: "456 Oak Avenue, Beverly Hills, CA 90210",
     distance: "0.8 miles",
     price: "1,450,000",
-    saleDate: "Mar 10, 2024",
+    saleDate: "10/3/2024",
     bedrooms: 4,
     baths: 3.5,
     sqft: 3000,
@@ -64,7 +65,7 @@ export const propertyData: PropertyCardProps[] = [
     address: "789 Pine Road, Beverly Hills, CA 90210",
     distance: "1.2 miles",
     price: "1,150,000",
-    saleDate: "Mar 5, 2024",
+    saleDate: "5/3/2024",
     bedrooms: 3,
     baths: 2.5,
     sqft: 2500,
@@ -173,7 +174,7 @@ export const PersonalizingTheOfferData = {
   address: "123 Palm Avenue",
   distance: "0.8 miles",
   price: "223,000",
-  saleDate: "Dec 14, 2024",
+  saleDate: "14/12/2024",
   bedrooms: 20,
   baths: 20,
   sqft: 1000000,
@@ -196,43 +197,44 @@ export const RecommendedOfferData = {
       details: [
         "Amenities are distant",
         "High Neighborhood Safety",
-        "High Quality of Local Schools"
-      ]
+        "High Quality of Local Schools",
+      ],
     },
     partialMatch: {
       title: "Partial Match",
-      details: "Kitchen size slightly smaller than pretend"
-    }
+      details: "Kitchen size slightly smaller than pretend",
+    },
   },
   image: {
-      image: {
-        url: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        alt: "Property"
-      },
-      matchPercentage: 95,
-      address: "XYZ Building, 1234 road, Fl, 1000048"
+    image: {
+      url: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      alt: "Property",
+    },
+    matchPercentage: 95,
+    address: "XYZ Building, 1234 road, Fl, 1000048",
   },
   recommendation: {
     title: "Offer savant recommendation",
     offerAmount: "$787,800",
     increaseAmount: "$10,000",
-    description: "This aggressive offer maximizes your chances of winning the home"
+    description:
+      "This aggressive offer maximizes your chances of winning the home",
   },
   offerDetails: {
     winProbability: "89%",
     offerStrategy: "More aggressive",
     yourOffer: {
       amount: "$787,800",
-      percentageChange: "+0.1%"
-    }
+      percentageChange: "+0.1%",
+    },
   },
   marketConditions: {
     type: "Seller's market",
-    competitionLevel: "High competition"
+    competitionLevel: "High competition",
   },
   listOffer: {
-    amount: "$787,800"
-  }
+    amount: "$787,800",
+  },
 };
 
 export const propertyQualityData = {
@@ -240,19 +242,27 @@ export const propertyQualityData = {
     title: "Overall quality score",
     score: 5,
     category: "Luxe",
-    description: "In excellent condition with high-quality features and no repairs needed."
+    description:
+      "In excellent condition with high-quality features and no repairs needed.",
   },
   exterior: {
     title: "Exterior",
     image: {
       url: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      alt: "House"
+      alt: "House",
     },
-    features: ["Fence", "Patio"]
+    features: ["Fence", "Patio"],
   },
   secondaryQuality: {
     score: 2,
     category: "Luxe",
-    description: "In excellent condition with high-quality features and no repairs needed."
-  }
+    description:
+      "In excellent condition with high-quality features and no repairs needed.",
+  },
 };
+export const OptionsIcons = [
+  { icon: <Star/> },
+  { icon: <Document/> },
+  { icon: <Shield/> },
+  { icon: <Search/> },
+];
