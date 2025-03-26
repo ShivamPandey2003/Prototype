@@ -18,7 +18,7 @@ const Aside = () => {
       <div className="flex items-center justify-between px-4 pt-4">
         <div className="flex items-center gap-3">
           <span className="relative flex size-8 shrink-0 overflow-hidden rounded-full h-10 w-10">
-            <span className="bg-zinc-100 flex size-full items-center justify-center rounded-full dark:bg-zinc-800">
+            <span className="bg-zinc-100 flex size-full font-primary items-center justify-center rounded-full dark:bg-zinc-800">
               {data.user.email[0]}
             </span>
           </span>
@@ -57,7 +57,7 @@ const Aside = () => {
       </div>
       <div className="border-t-[#797979] border-t-[0.5px] opacity-40"></div>
       <div className="flex-1 px-4 py-0 overflow-y-auto flex flex-col items-center custom-scrollbar">
-        <h2 className="my-4 text-sm font-normal text-[#272727]">Your Offers</h2>
+        <h2 className="my-4 text-sm font-normal font-primary text-[#272727]">Your Offers</h2>
         <div className="space-y-4 flex flex-col items-center w-full">
           {
             Array.from({length:3}).map((_, i)=>(
@@ -71,11 +71,11 @@ const Aside = () => {
       <div className="flex border-t border-[#E5E7EB] bg-[#B8D4FF] rounded-t-2xl text-[#272727]">
         <Link
           to={"/"}
-          className="flex-1 p-4 text-center text-base font-semibold"
+          className="flex-1 p-4 text-center font-[ClashDisplay-Medium] text-base font-semibold"
         >
           Home
         </Link>
-        <p className="flex-1 p-4 text-center text-base font-semibold">FAQ</p>
+        <p className="flex-1 p-4 text-center font-[ClashDisplay-Medium] text-base font-semibold">FAQ</p>
       </div>
     </div>
   );

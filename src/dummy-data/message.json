@@ -3,17 +3,25 @@
     {
       "message": "Hi there! I'm Agent Mira, your home-buying consultant Lets's work together to craft the perfect offer for your dream home.",
       "Action": "",
-      "option": []
+      "option": [],
+      "selectedOption":[]
     },
     {
       "message": "To get started, I need to know a little more about location. What's your address?",
       "Action": "input",
-      "option": []
+      "option": [],
+      "selectedOption":[]
     },
     {
       "message": "we will consider the same in our offer. Now we'll dive into the next step: analyzing this property and the market to create your personalized offer!",
       "Action": "next",
-      "option": ["presenting-comparable"]
+      "option": [
+        {
+          "optionId": 1,
+          "optionText": "presenting-comparable"
+        }
+      ],
+      "selectedOption":[]
     }
   ],
 
@@ -22,15 +30,31 @@
       "message": "Select a property below to remove from the comparable properties list.",
       "Action": "select",
       "option": [
-        "abc, road, city, state, zip",
-        "def, road, city, state, zip",
-        "xyz, road, city, state, zip"
-      ]
+        {
+          "optionId": 1,
+          "optionText": "123, Palm avenue"
+        },
+        {
+          "optionId": 2,
+          "optionText": "123, Palm avenue"
+        },
+        {
+          "optionId": 3,
+          "optionText": "123, Palm avenue"
+        }
+      ],
+      "selectedOption":[]
     },
     {
       "message": "Sounds good! I'll use this data to help craft your winnning offer.",
       "Action": "next",
-      "option": ["analyzing-current-market"]
+      "option": [
+        {
+          "optionId": 1,
+          "optionText": "analyzing-current-market"
+        }
+      ],
+      "selectedOption":[]
     }
   ],
 
@@ -39,15 +63,31 @@
       "message": "Done! I've got the market insights ready. Let's take a look and see what they tell us abouttis property.",
       "Action": "select",
       "option": [
-        "Show Price Trends",
-        "Show Supply and Demand",
-        "Show Market Type"
-      ]
+        {
+          "optionId": 1,
+          "optionText": "Show Price Trends"
+        },
+        {
+          "optionId": 2,
+          "optionText": "Show Supply and Demand"
+        },
+        {
+          "optionId": 3,
+          "optionText": "Show Market Type"
+        }
+      ],
+      "selectedOption":[]
     },
     {
       "message": "These factors give us valuable insight into how to position you offer. Lets use this data to refine our pricing strategy!",
       "Action": "next",
-      "option": ["property-condition"]
+      "option": [
+        {
+          "optionId": 1,
+          "optionText": "property-condition"
+        }
+      ],
+      "selectedOption":[]
     }
   ],
 
@@ -55,76 +95,119 @@
     {
       "message": "Here is the overall quality score",
       "Action": "",
-      "option": []
+      "option": [],
+      "selectedOption":[]
     },
     {
       "message": "Here are the damages of the property",
       "Action": "",
-      "option": []
+      "option": [],
+      "selectedOption":[]
     },
     {
       "message": "Have you had a chance to see the property in person?",
       "Action": "select",
       "option": [
-        "Yes, I have visited the property",
-        "No, I haven't visited the property"
-      ]
+        {
+          "optionId": 1,
+          "optionText": "Yes, I have visited the property"
+        },
+        {
+          "optionId": 2,
+          "optionText": "No, I haven't visited the property"
+        }
+      ],
+      "selectedOption":[]
     },
     {
       "message": "These factors give us valuable insight into how to position your offer. Lets use this data to refine our price strategy!",
       "Action": "next",
-      "option": ["personalizing-the-offer"]
+      "option": [
+        {
+          "optionId": 1,
+          "optionText": "personalizing-the-offer"
+        }
+        ],
+      "selectedOption":[]
     }
   ],
   "/create/personalizing-the-offer": [
     {
       "message": "Wow, I love seeing your inspiration! this really helps me understand you vision. Let's make sure this property aligns with it",
       "Action": "",
-      "option": []
+      "option": [],
+      "selectedOption":[]
     },
     {
       "message": "Now that I undestand your dream home and priorities. I'll analyze how this property aligns with them and tailor your offer accordingly. Let's move forward",
       "Action": "next",
-      "option": ["recommended-offer"]
+      "option": [
+        {
+          "optionId": 1,
+          "optionText": "recommended-offer"
+        }
+        ],
+      "selectedOption":[]
     }
   ],
   "/create/recommended-offer": [
     {
       "message": "Thank you for sharing all the important information to help me design the best offer for your target property",
       "Action": "",
-      "option": []
+      "option": [],
+      "selectedOption":[]
     },
     {
       "message": "Please take a moment to review this offer",
       "Action": "",
-      "option": []
+      "option": [],
+      "selectedOption":[]
     },
     {
       "message": "Now would you like to customise your offer? How competitive would you like your offer to be?",
       "Action":"select",
       "option":[
-        "Stay conservative",
-        "Balance value & win",
-        "Win this home"
-      ]
+        {
+          "optionId": 1,
+          "optionText": "Stay conservative"
+        },
+        {
+          "optionId": 2,
+          "optionText": "Balance value & win"
+        },
+        {
+          "optionId": 2,
+          "optionText": "Win this home"
+        }
+      ],
+      "selectedOption":[]
     },
     {
       "message":"Great! You'll recieve confirmation shortly",
       "Action":"",
-      "option":[]
+      "option":[],
+      "selectedOption":[]
     },
     {
       "message":"Meanwhile, I'll share these details with one of our expert real estate agents.They'll double check my analysis to ensure i haven't missed anything and cnfirm the final offer the with you soon",
       "Action":"",
-      "option":[]
+      "option":[],
+      "selectedOption":[]
     },
     {
       "message":"Would you like to download a report with all the information we've discussed?",
       "Action":"select",
       "option":[
-        "No, Thank you!",
-        "Download"
-      ]
+        {
+          "optionId": 1,
+          "optionText": "No, Thank you!"
+        },
+        {
+          "optionId": 2,
+          "optionText": "Download"
+        }
+      ],
+      "selectedOption":[]
     }
   ]
 }

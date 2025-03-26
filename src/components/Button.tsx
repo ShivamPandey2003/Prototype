@@ -6,7 +6,7 @@ const Button = (props: HTMLAttributes<HTMLDivElement>) => {
     const {className, children, ...prop} = props;
   return (
     <div className={`group flex w-full`} {...prop}>
-      <div className={twMerge("flex-1 bg-[#1E4DB7] text-[#F6F3EE] rounded-full flex items-center justify-center text-base", className)}>
+      <div className={twMerge("flex-1 bg-[#1E4DB7] text-[#F6F3EE] font-[ClashDisplay-Medium] rounded-full flex items-center justify-center text-base", className)}>
         {children}
       </div>
       <div className="bg-[#1E4DB7] text-[#F6F3EE] p-2 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-2">

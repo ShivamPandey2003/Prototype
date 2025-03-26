@@ -22,15 +22,15 @@ const Home = () => {
                 className="h-12 sm:h-14 md:h-16 lg:h-[68px] w-8 sm:w-10 md:w-11 lg:w-[46px]"
               />
             </div>
-            <h1 className="text-[clamp(28px,5vw,88px)] md:text-[clamp(32px,6vw,88px)] text-left text-white">
+            <h1 className="font-[ClashDisplay-Regular] text-[clamp(28px,5vw,88px)] md:text-[clamp(32px,6vw,88px)] text-left text-white">
               Welcome to
               <br />
-              <span>
+              <span className="font-[ClashDisplay-Medium]">
                 Offer <br />
                 Savant
               </span>
             </h1>
-            <p className="text-[clamp(16px,2.5vw,36px)] md:text-[clamp(18px,3vw,36px)] leading-tight text-white">
+            <p className="font-[ClashDisplay-Regular] text-[clamp(16px,2.5vw,36px)] md:text-[clamp(18px,3vw,36px)] leading-tight text-white">
               <span>
                 Your Smartest Step Toward
                 <br />
@@ -52,7 +52,7 @@ const Home = () => {
             to={"/create"}
             className="group flex w-full h-14 sm:h-16 md:h-18 lg:h-20"
           >
-            <div className="flex-1 bg-[#4ADAA8] text-[#1E4DB7] text-xl sm:text-2xl md:text-3xl lg:text-[38px] leading-tight text-center flex items-center justify-center rounded-full">
+            <div className="flex-1 bg-[#4ADAA8] text-[#1E4DB7] text-xl sm:text-2xl md:text-3xl lg:text-[38px] leading-tight text-center flex items-center justify-center rounded-full font-[ClashDisplay-Medium]">
               Create Your Offer
             </div>
             <div className="h-14 sm:h-16 md:h-18 lg:h-20 w-14 sm:w-16 md:w-18 lg:w-20 flex items-center justify-center bg-[#4ADAA8] text-[#1E4DB7] rounded-full transition-transform group-hover:translate-x-2">
@@ -63,9 +63,9 @@ const Home = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-arrow-right h-5 w-5 sm:h-6 sm:w-6"
               >
                 <path d="M5 12h14"></path>
@@ -74,7 +74,7 @@ const Home = () => {
             </div>
           </Link>
           <div className="mt-6 w-full rounded-[12px] border-[1px] border-[#1354B6] py-12 px-10">
-            <p className="text-center font-[Geologica] font-light text-lg sm:text-xl md:text-2xl lg:text-[28px] text-[#1E4DB7]">
+            <p className="text-center font-primary font-light text-lg sm:text-xl md:text-2xl lg:text-[28px] text-[#1E4DB7]">
               Let's embark on this journey together to discover your winning
               offer—tailored to your goals, preferences, and the current market.
             </p>

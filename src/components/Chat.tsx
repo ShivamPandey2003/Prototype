@@ -1,6 +1,6 @@
 import AddressTag from "./AddressTag";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import ChatBubble from "./ChatBubble";
 import Messages from "../dummy-data/message.json";
 import { useSelector } from "react-redux";
@@ -12,7 +12,11 @@ import { OptionsIcons } from "../constant";
 interface ChatProps {
   message: string;
   Action: string;
-  option: string[];
+  option: {
+    optionId: number,
+    optionText: string
+  }[];
+  selectedOption: number[]
 }
 
 const Chat = () => {
@@ -30,7 +34,10 @@ const Chat = () => {
   const [inputDisabled, setInputDisabled] = useState<boolean>(false);
   const [isAction, setIsAction] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>(address);
-  const [selected, setSelected] = useState<string>("");
+  const [selected, setSelected] = useState<number>(() => {
+    const foundItem = data?.find((item:any) => item.selectedOption?.length > 0);
+    return foundItem ? foundItem.selectedOption[0] : 0;
+  });
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -81,9 +88,19 @@ const Chat = () => {
     setInputValue(e.target.value);
   };
 
-  const onClick = (option: string) => {
-    setSelected(option);
+  const onClick = (option: {
+    optionId: number,
+    optionText: string
+  }) => {
+    setSelected(option.optionId);
     setIsAction(false);
+    setMessages((prev) =>
+      prev.map((data) =>
+        data.option.includes(option)
+          ? { ...data, selectedOption: [option.optionId] }
+          : data
+      )
+    );
   };
 
   return (
@@ -122,7 +139,7 @@ const Chat = () => {
                   </form>
                 ) : message.Action === "next" ? (
                   <div className="w-full flex justify-center items-center group my-4 px-2">
-                    <Button onClick={()=>navigate(`/create/${message.option[0]}`)}>Next Step</Button>
+                    <Button onClick={()=>navigate(`/create/${message.option[0].optionText}`)}>Next Step</Button>
                   </div>
                 ) : (
                   <ul className="mt-3 space-y-1 mb-1">
@@ -131,7 +148,7 @@ const Chat = () => {
                         onClick={() => onClick(option)}
                         key={index}
                         className={`text-sm p-1 flex items-center gap-6 rounded-full text-center ${
-                          selected === option
+                          selected === (typeof option === "object" && "optionText" in option && option.optionId)
                             ? "text-blue-800 font-semibold text-[16px] border-2 border-blue-300 bg-white"
                             : "text-white font-semibold text-[16px] hover:bg-[#5D9DFE] border-2 border-blue-800 bg-[#1354B6]"
                         }`}
@@ -139,7 +156,7 @@ const Chat = () => {
                         <div className="rounded-full w-14 h-14 bg-[#B8D4FF] flex items-center justify-center">
                           {OptionsIcons[index].icon}
                         </div>
-                        {option}
+                        {option.optionText}
                       </li>
                     ))}
                   </ul>

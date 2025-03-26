@@ -1,9 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+type option = {
+  optionId: number,
+  optionText: string
+}
+
 type MsgType = {
   message: string;
   Action: string;
-  option: string[];
+  option: option[];
+  selectedOption: number[]
 };
 
 type HomeState = {

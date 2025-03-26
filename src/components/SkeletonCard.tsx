@@ -13,7 +13,7 @@ export const SkeletonCard = () => {
       
       <div className="absolute flex flex-col items-center top-[50%]">
         <div className="h-12 w-12 border-4 border-gray-200 border-t-green-500 rounded-full animate-spin"></div>
-        <p className="mt-4 text-sm text-gray-600 max-w-xs text-center">
+        <p className="mt-4 text-sm text-gray-600 font-[ClashDisplay-Medium] max-w-xs text-center">
           Understanding Your Goals: We discussed your definition of a winning offer and what your dream home looks like.
         </p>
       </div>
@@ -68,7 +68,7 @@ export const SkeletonCard3 = () => {
         </div>
       </div>
       <div className="p-3 space-y-4">
-        <div className="text-sm text-gray-400">
+        <div className="text-sm text-gray-400 font-[ClashDisplay-Medium]">
           Price Trends: How property values in the area have been changing recently...
         </div>
         <div className="space-y-2">

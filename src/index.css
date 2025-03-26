@@ -1,7 +1,87 @@
+@import"https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap";
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'ClashDisplay-Extralight';
+  src: url('./assets/Fonts/ClashDisplay-Extralight.woff2') format('woff2'),
+       url('./assets/Fonts/ClashDisplay-Extralight.woff') format('woff'),
+       url('./assets/Fonts/ClashDisplay-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Light';
+  src: url('./assets/Fonts/ClashDisplay-Light.woff2') format('woff2'),
+       url('./assets/Fonts/ClashDisplay-Light.woff') format('woff'),
+       url('./assets/Fonts/ClashDisplay-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Regular';
+  src: url('./assets/Fonts/ClashDisplay-Regular.woff2') format('woff2'),
+       url('./assets/Fonts/ClashDisplay-Regular.woff') format('woff'),
+       url('./assets/Fonts/ClashDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Medium';
+  src: url('./assets/Fonts/ClashDisplay-Medium.woff2') format('woff2'),
+       url('./assets/Fonts/ClashDisplay-Medium.woff') format('woff'),
+       url('./assets/Fonts/ClashDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Semibold';
+  src: url('./assets/Fonts/ClashDisplay-Semibold.woff2') format('woff2'),
+       url('./assets/Fonts/ClashDisplay-Semibold.woff') format('woff'),
+       url('./assets/Fonts/ClashDisplay-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Bold';
+  src: url('./assets/Fonts/ClashDisplay-Bold.woff2') format('woff2'),
+       url('./assets/Fonts/ClashDisplay-Bold.woff') format('woff'),
+       url('./assets/Fonts/ClashDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Variable';
+  src: url('./assets/Fonts/ClashDisplay-Variable.woff2') format('woff2'),
+       url('./assets/Fonts/ClashDisplay-Variable.woff') format('woff'),
+       url('./assets/Fonts/ClashDisplay-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+@theme{
+  --font-primary: "Geologic";
+  --default-font-family: var(--font-sans);
+}
 
 *{
   box-sizing: border-box;
+}
+
+html{
+  font-family: var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji")
+}
+
+.textColor{
+  color: #1354b6;
 }
 
 .custom-scrollbar {
